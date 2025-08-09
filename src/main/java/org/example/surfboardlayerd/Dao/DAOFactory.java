@@ -1,5 +1,6 @@
 package org.example.surfboardlayerd.Dao;
 
+import org.example.surfboardlayerd.Dao.custom.GuideDao;
 import org.example.surfboardlayerd.Dao.custom.Impl.GuideDaoImpl;
 
 public class DAOFactory {
@@ -12,7 +13,7 @@ public class DAOFactory {
        GUIDE
 
     }
-    public SuperDAO getDAO(DAOTypes daoType) {
+    public GuideDao getDAO(DAOTypes daoType) {
         switch(daoType){
             case GUIDE:
                 return new GuideDaoImpl();

@@ -1,25 +1,22 @@
 package org.example.surfboardlayerd.BO.custom.impl;
 
-import org.example.surfboardlayerd.Dao.DAOFactory;
-import org.example.surfboardlayerd.Dao.SuperDAO;
-import org.example.surfboardlayerd.Dao.custom.Impl.GuideDaoImpl;
 
-import static org.example.surfboardlayerd.Dao.DAOFactory.daoFactory;
+import org.example.surfboardlayerd.BO.SuperBO;
 
 public class BOFactory {
     private static BOFactory boFactory;
     private BOFactory() {}
     public static BOFactory getInstance() {
-        return (BOFactory) ==null)?new DAOFactory():daoFactory;
+        return ((boFactory) == null) ?new BOFactory():boFactory;
     }
-    public enum DAOTypes {
+    public enum BOTypes {
         GUIDE
 
     }
-    public SuperDAO getDAO(DAOFactory.DAOTypes daoType) {
-        switch(daoType){
+    public SuperBO getBO(BOTypes boType) {
+        switch(boType){
             case GUIDE:
-                return new GuideDaoImpl();
+                return new GuideBOImpl();
             default:
                 return null;
         }

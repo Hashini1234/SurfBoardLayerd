@@ -9,7 +9,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class Guide {
+public class GuideEntity {
     private String guideId;
     private String name;
     private String contactDetails;

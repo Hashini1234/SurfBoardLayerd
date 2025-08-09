@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="836.0" prefWidth="1281.0" style="-fx-background-color: linear-gradient(to bottom right, #d8c3f3, #d3d3d3);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.surfboardmanagementsystem.controller.GuidController">
+<AnchorPane prefHeight="836.0" prefWidth="1281.0" style="-fx-background-color: linear-gradient(to bottom right, #d8c3f3, #d3d3d3);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.surfboardlayerd.controller.GuideFormController">
     <children>
         <AnchorPane layoutX="7.0" layoutY="14.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -142,7 +142,7 @@
 
                 <!-- ID Labels -->
                 <Label layoutX="6.0" layoutY="-9.0" prefHeight="32.0" prefWidth="311.0" style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Guide id" textFill="black" />
-                <Label fx:id="lblId" layoutX="197.0" layoutY="-4.0" prefHeight="26.0" prefWidth="185.0" style="-fx-font-size: 15px; -fx-font-weight: bold;" text="1" textFill="black" />
+                <Label fx:id="lblId" layoutX="197.0" layoutY="-4.0"  prefHeight="26.0" prefWidth="185.0" style="-fx-font-size: 15px; -fx-font-weight: bold;" text="1" textFill="black" />
             </children>
         </AnchorPane>
     </children>
