@@ -1,4 +1,4 @@
-package org.example.surfboardlayerd.BO.custom;
+package org.example.surfboardlayerd.BO.custom.impl;
 
-public class GuideBO {
+public class GuideBOImpl {
 }
