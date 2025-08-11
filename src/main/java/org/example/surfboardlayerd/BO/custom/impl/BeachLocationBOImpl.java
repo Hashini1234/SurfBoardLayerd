@@ -73,3 +73,4 @@ public class BeachLocationBOImpl implements BeachLocationBO {
         return Arrays.asList("High Season", "Low Season", "Peak Season", "Off Season");
     }
 
+}
