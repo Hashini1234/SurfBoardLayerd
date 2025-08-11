@@ -64,7 +64,7 @@ private final GuideDao guideDao = DAOFactory.getInstance().getDAO(DAOFactory.DAO
 
     @Override
     public String getNextId() throws SQLException, ClassNotFoundException {
-        return GuideDao.getNextId();
+        return guideDao.generateNewId();
 
     }
 }

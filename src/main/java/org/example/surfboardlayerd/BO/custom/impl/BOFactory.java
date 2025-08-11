@@ -11,14 +11,20 @@ public class BOFactory {
     }
     public enum BOTypes {
         GUIDE
+        ,BeachLocation
+
 
     }
     public SuperBO getBO(BOTypes boType) {
         switch(boType){
             case GUIDE:
                 return new GuideBOImpl();
+                case BeachLocation:
+                return new BeachLocationBoiMPL();
             default:
                 return null;
         }
+
+
     }
 }

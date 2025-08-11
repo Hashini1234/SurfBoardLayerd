@@ -4,16 +4,14 @@ import lombok.*;
 
 @NoArgsConstructor
 @ToString
-@Getter
 @AllArgsConstructor
+@Getter
 @Setter
-
-public class GuideDto {
-    private String guideId;
+public class TouristDto {
+    private String touristId;
     private String name;
+    private String address;
     private String contactDetails;
-    private String experienceLevel;
-    private Double payFor;
-    private String status;
+    private String email;
 
 }
