@@ -1,76 +1,44 @@
 package org.example.surfboardlayerd.BO.custom.impl;
 
 import org.example.surfboardlayerd.BO.custom.BeachLocationBO;
-import org.example.surfboardlayerd.BO.custom.impl.BOFactory;
-import org.example.surfboardlayerd.stom.BeachLocationDAO;
-import org.example.surfboardlayerd.achLocationDTO;
-import org.example.surfboardlayerd.BeachLocationEntity;
+import org.example.surfboardlayerd.Dao.DAOFactory;
+import org.example.surfboardlayerd.Dao.custom.BeachLocationDao;
+import org.example.surfboardlayerd.entity.BeachLocationEntity;
+import org.example.surfboardlayerd.model.BeachLocationDto;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class BeachLocationBOImpl implements BeachLocationBO {
-
-    private final BeachLocationDAO beachLocationDAO = (BeachLocationDAO) DAOFactory.getDAOFactory()
-            .getDAO(DAOFactory.DAOTypes.BEACH_LOCATION);
-
+private final BeachLocationDao beachLocationDao = DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.BEACHLOCATION);
     @Override
-    public boolean saveBeachLocation(BeachLocationDTO dto) throws SQLException, ClassNotFoundException {
-        BeachLocationEntity entity = convertDTOToEntity(dto);
-        return beachLocationDAO.save(entity);
-    }
-
-    @Override
-    public boolean updateBeachLocation(BeachLocationDTO dto) throws SQLException, ClassNotFoundException {
-        BeachLocationEntity entity = convertDTOToEntity(dto);
-        return beachLocationDAO.update(entity);
-    }
-
-    @Override
-    public boolean deleteBeachLocation(String id) throws SQLException, ClassNotFoundException {
-        return beachLocationDAO.delete(id);
-    }
-
-    @Override
-    public List<BeachLocationDTO> getAllBeachLocations() throws SQLException, ClassNotFoundException {
-        List<BeachLocationEntity> entities = beachLocationDAO.getAll();
-        List<BeachLocationDTO> dtos = new ArrayList<>();
-
-        for (BeachLocationEntity entity : entities) {
-            dtos.add(convertEntityToDTO(entity));
+    public List<BeachLocationDto> getAll() throws SQLException, ClassNotFoundException {
+        List<BeachLocationEntity> entities = dao.getAll();
+        List<BeachLocationDto> dtos = new ArrayList<>();
+        for (BeachLocationEntity e : entities) {
+            dtos.add(new BeachLocationDto(e.getBeachId(), e.getName(), e.getPeakSeason(), e.getMonth()));
         }
         return dtos;
     }
 
     @Override
-    public BeachLocationDTO getBeachLocationById(String id) throws SQLException, ClassNotFoundException {
-        BeachLocationEntity entity = beachLocationDAO.findById(id);
-        return entity != null ? convertEntityToDTO(entity) : null;
+    public boolean save(BeachLocationDto dto) throws SQLException, ClassNotFoundException {
+        return false;
     }
 
     @Override
-    public String getNextBeachLocationId() throws SQLException, ClassNotFoundException {
-        return beachLocationDAO.getNextId();
+    public boolean update(BeachLocationDto dto) throws SQLException, ClassNotFoundException {
+        return false;
     }
 
     @Override
-    public List<String> getAllBeachLocationIds() throws SQLException, ClassNotFoundException {
-        return beachLocationDAO.getAllBeachIds();
+    public boolean delete(String id) throws SQLException, ClassNotFoundException {
+        return false;
     }
 
     @Override
-    public List<String> getAllMonths() {
-        return Arrays.asList(
-                "January", "February", "March", "April", "May", "June",
-                "July", "August", "September", "October", "November", "December"
-        );
+    public String getNextId() throws SQLException, ClassNotFoundException {
+        return "";
     }
-
-    @Override
-    public List<String> getAllSeasons() {
-        return Arrays.asList("High Season", "Low Season", "Peak Season", "Off Season");
-    }
-
 }

@@ -2,15 +2,16 @@ package org.example.surfboardlayerd.Dao.custom.Impl;
 
 import org.example.surfboardlayerd.Dao.SQLUtil;
 import org.example.surfboardlayerd.Dao.custom.GuideDao;
+import org.example.surfboardlayerd.entity.BeachLocationEntity;
 import org.example.surfboardlayerd.entity.GuideEntity;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
 
 public class GuideDaoImpl implements GuideDao {
     @Override
-    public ArrayList<GuideEntity> getAll() throws SQLException, ClassNotFoundException {
+    public List<BeachLocationEntity> getAll() throws SQLException, ClassNotFoundException {
         return null;
     }
 
