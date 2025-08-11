@@ -6,7 +6,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import org.example.surfboardlayerd.BO.custom.GuideBO;
-import org.example.surfboardlayerd.BO.custom.impl.BOFactory;
+import org.example.surfboardlayerd.BO.BOFactory;
 
 public class GuideFormController {
     private final GuideBO guideBO = (GuideBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.GUIDE);

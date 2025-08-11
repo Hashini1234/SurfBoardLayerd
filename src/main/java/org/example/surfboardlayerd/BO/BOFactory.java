@@ -1,7 +1,10 @@
-package org.example.surfboardlayerd.BO.custom.impl;
+package org.example.surfboardlayerd.BO;
 
 
-import org.example.surfboardlayerd.BO.SuperBO;
+import org.example.surfboardlayerd.BO.custom.impl.BeachLocationBOImpl;
+import org.example.surfboardlayerd.BO.custom.impl.GuideBOImpl;
+import org.example.surfboardlayerd.BO.custom.impl.ItemBOImpl;
+import org.example.surfboardlayerd.Dao.custom.Impl.ItemDaoImpl;
 
 public class BOFactory {
     private static BOFactory boFactory;
@@ -10,8 +13,9 @@ public class BOFactory {
         return ((boFactory) == null) ?new BOFactory():boFactory;
     }
     public enum BOTypes {
-        GUIDE
-        ,BeachLocation
+        GUIDE,BeachLocation,Item
+
+
 
 
     }
@@ -20,7 +24,9 @@ public class BOFactory {
             case GUIDE:
                 return new GuideBOImpl();
                 case BeachLocation:
-                return new BeachLocationBoiMPL();
+                return new BeachLocationBOImpl();
+            case Item:
+                return new ItemBOImpl();
             default:
                 return null;
         }

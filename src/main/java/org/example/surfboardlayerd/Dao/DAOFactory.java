@@ -2,6 +2,7 @@ package org.example.surfboardlayerd.Dao;
 
 import org.example.surfboardlayerd.Dao.custom.Impl.BeachLocationDaoImpl;
 import org.example.surfboardlayerd.Dao.custom.Impl.GuideDaoImpl;
+import org.example.surfboardlayerd.Dao.custom.Impl.ItemDaoImpl;
 
 public class DAOFactory {
     private static DAOFactory daoFactory;
@@ -10,7 +11,7 @@ public class DAOFactory {
         return (daoFactory==null)?new DAOFactory():daoFactory;
     }
     public enum DAOTypes {
-       GUIDE,BEACHLOCATION
+       GUIDE,BEACHLOCATION,ITEM
 
     }
     public GuideDaoImpl getDAO(DAOTypes daoType) {
@@ -19,6 +20,8 @@ public class DAOFactory {
                 return new GuideDaoImpl();
             case BEACHLOCATION:
                 return new BeachLocationDaoImpl();
+            case GUIDE:
+                return new ItemDaoImpl();
                        default:
                 return null;
         }
