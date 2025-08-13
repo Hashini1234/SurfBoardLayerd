@@ -7,7 +7,6 @@ import org.example.surfboardlayerd.entity.ItemEntity;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class ItemDaoImpl implements ItemDao {
 

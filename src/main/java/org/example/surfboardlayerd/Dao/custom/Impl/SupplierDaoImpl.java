@@ -2,6 +2,7 @@ package org.example.surfboardlayerd.Dao.custom.Impl;
 
 import org.example.surfboardlayerd.Dao.SQLUtil;
 import org.example.surfboardlayerd.Dao.custom.SupplierDao;
+import org.example.surfboardlayerd.entity.ItemEntity;
 import org.example.surfboardlayerd.entity.SupplierEntity;
 
 import java.sql.ResultSet;

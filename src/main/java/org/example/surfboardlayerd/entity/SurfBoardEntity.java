@@ -1,13 +1,13 @@
-package org.example.surfboardlayerd.model;
+package org.example.surfboardlayerd.entity;
 
 import lombok.*;
 
 @NoArgsConstructor
-@Setter
-@Getter
 @AllArgsConstructor
+@Getter
+@Setter
 @ToString
-public class SurfBoardDto {
+public class SurfBoardEntity {
     private String surfboardId;
     private String brand;
     private String conditions;

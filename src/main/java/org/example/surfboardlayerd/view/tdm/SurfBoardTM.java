@@ -1,4 +1,4 @@
-package org.example.surfboardlayerd.model;
+package org.example.surfboardlayerd.view.tdm;
 
 import lombok.*;
 
@@ -7,9 +7,9 @@ import lombok.*;
 @Getter
 @AllArgsConstructor
 @ToString
-public class SurfBoardDto {
+public class SurfBoardTM {
     private String surfboardId;
     private String brand;
     private String conditions;
-
+    private String status;
 }

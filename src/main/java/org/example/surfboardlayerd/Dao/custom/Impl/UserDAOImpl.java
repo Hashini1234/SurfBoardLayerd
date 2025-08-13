@@ -2,6 +2,7 @@ package org.example.surfboardlayerd.Dao.custom.Impl;
 
 import org.example.surfboardlayerd.Dao.SQLUtil;
 import org.example.surfboardlayerd.Dao.custom.UserDAO;
+import org.example.surfboardlayerd.entity.ItemEntity;
 import org.example.surfboardlayerd.entity.UserEntity;
 
 import java.sql.ResultSet;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 
 public class UserDAOImpl implements UserDAO {
     @Override
-    public ArrayList<UserEntity> getAll() throws SQLException, ClassNotFoundException {
+    public ArrayList<ItemEntity> getAll() throws SQLException, ClassNotFoundException {
         ResultSet resultSet = SQLUtil.execute("SELECT * FROM users");
         ArrayList<UserEntity> list = new ArrayList<>();
         while (resultSet.next()) {
