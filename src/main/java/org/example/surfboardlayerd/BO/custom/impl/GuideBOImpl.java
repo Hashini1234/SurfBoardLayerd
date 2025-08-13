@@ -4,14 +4,13 @@ import org.example.surfboardlayerd.BO.custom.GuideBO;
 import org.example.surfboardlayerd.Dao.DAOFactory;
 import org.example.surfboardlayerd.Dao.custom.GuideDao;
 import org.example.surfboardlayerd.entity.GuideEntity;
-import org.example.surfboardlayerd.model.GuideDto;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class GuideBOImpl implements GuideBO {
-private final GuideDao guideDao = DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.GUIDE);
+private final GuideDao guideDao = ( GuideDao)DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.GUIDE);
 
 
     @Override
@@ -53,11 +52,11 @@ private final GuideDao guideDao = DAOFactory.getInstance().getDAO(DAOFactory.DAO
     }
 
     @Override
-    public List<GuideDto> getAllGuides() throws SQLException, ClassNotFoundException {
+    public List<GuideEntity> getAllGuides() throws SQLException, ClassNotFoundException {
         List<GuideEntity> entities = guideDao.getAll();
-        List<GuideDto> list = new ArrayList<>();
+        List<GuideEntity> list = new ArrayList<>();
         for (GuideEntity e : entities) {
-            list.add(new GuideDto(e.getGuideId(), e.getName(), e.getContactDetails(), e.getExperienceLevel(), e.getPayFor(), e.getStatus()));
+            list.add(new GuideEntity(e.getGuideId(), e.getName(), e.getContactDetails(), e.getExperienceLevel(), e.getPayFor(), e.getStatus()));
         }
         return list;
     }

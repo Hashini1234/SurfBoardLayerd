@@ -8,11 +8,11 @@ import java.sql.SQLException;
 public class DBConnection {
     private static DBConnection dBConnection;
 
-    private Connection connection;
+    private final Connection connection;
 
     private DBConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/SurfBusiness", "root", "1234");
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sufrboadfinal", "root", "1234");
     }
 
     public static DBConnection getInstance() throws ClassNotFoundException, SQLException{

@@ -3,14 +3,16 @@ package org.example.surfboardlayerd.view.tdm;
 import lombok.*;
 
 @NoArgsConstructor
+@Setter
 @AllArgsConstructor
 @Getter
-@Setter
 @ToString
-
 public class ItemTM {
     private String itemId;
     private String name;
-    private int qtyOnHand;
-    private double unitPrice;
+    private String type;
+    private String conditions;
+    private String availabilityStatus;
+
+
 }

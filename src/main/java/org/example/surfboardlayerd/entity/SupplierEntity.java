@@ -8,10 +8,8 @@ import lombok.*;
 @Setter
 @ToString
 
-public class ItemEntity {
-    private String itemId;
+public class SupplierEntity {
+    private String supplierId;
     private String name;
-    private String type;
-    private String conditions;
-    private String availabilityStatus;
+    private String contactInfo;
 }

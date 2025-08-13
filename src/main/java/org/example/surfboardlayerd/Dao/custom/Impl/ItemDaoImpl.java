@@ -9,20 +9,19 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.example.surfboardlayerd.Dao.SQLUtil.executeQuery;
-
 public class ItemDaoImpl implements ItemDao {
 
     @Override
-    public List<ItemEntity> getAll() throws SQLException, ClassNotFoundException {
-        ResultSet rs = SQLUtil.executeQuery("SELECT * FROM Item");
-        List<ItemEntity> list = new ArrayList<>();
+    public ArrayList<ItemEntity> getAll() throws SQLException, ClassNotFoundException {
+        ResultSet rs = SQLUtil.execute("SELECT * FROM item");
+        ArrayList<ItemEntity> list = new ArrayList<>();
         while (rs.next()) {
             list.add(new ItemEntity(
                     rs.getString("item_id"),
                     rs.getString("name"),
-                    rs.getInt("qty_on_hand"),
-                    rs.getDouble("unit_price")
+                    rs.getString("type"),
+                    rs.getString("conditions"),
+                    rs.getString("availability_status")
             ));
         }
         return list;
@@ -30,41 +29,62 @@ public class ItemDaoImpl implements ItemDao {
 
     @Override
     public boolean save(ItemEntity entity) throws SQLException, ClassNotFoundException {
-        return SQLUtil.executeUpdate(
-                "INSERT INTO Item VALUES (?,?,?,?)",
+        System.out.println(entity);
+        return SQLUtil.execute(
+                "INSERT INTO item (item_id, name, type, conditions, availability_status) VALUES (?,?,?,?,?)",
                 entity.getItemId(),
                 entity.getName(),
-                entity.getQtyOnHand(),
-                entity.getUnitPrice()
+                entity.getType(),
+                entity.getConditions(),
+                entity.getAvailabilityStatus()
         );
     }
 
     @Override
     public boolean update(ItemEntity entity) throws SQLException, ClassNotFoundException {
-        return SQLUtil.executeUpdate(
-                "UPDATE Item SET name=?, qty_on_hand=?, unit_price=? WHERE item_id=?",
+        return SQLUtil.execute(
+                "UPDATE Item SET name=?, type=?, conditions=?, availability_status=? WHERE item_id=?",
                 entity.getName(),
-                entity.getQtyOnHand(),
-                entity.getUnitPrice(),
+                entity.getType(),
+                entity.getConditions(),
+                entity.getAvailabilityStatus(),
                 entity.getItemId()
         );
     }
 
     @Override
-    public boolean delete(String id) throws SQLException, ClassNotFoundException {
-        return SQLUtil.executeUpdate("DELETE FROM Item WHERE item_id=?", id);
+    public boolean exist(String id) throws SQLException, ClassNotFoundException {
+        return false;
     }
 
     @Override
-    public String getNextId() throws SQLException, ClassNotFoundException {
-        ResultSet rs = SQLUtil.executeQuery("SELECT item_id FROM Item ORDER BY item_id DESC LIMIT 1");
-        char prefix = 'I';
-        if (rs.next()) {
-            String lastId = rs.getString(1);
-            int num = Integer.parseInt(lastId.substring(1)) + 1;
-            return String.format(prefix + "%03d", num);
+    public boolean delete(String id) throws SQLException, ClassNotFoundException {
+        return SQLUtil.execute("DELETE FROM Item WHERE item_id=?", id);
+    }
+
+    @Override
+    public String generateNewId() throws SQLException, ClassNotFoundException {
+        try{
+        ResultSet rs = SQLUtil.execute("select Item_id from Item order by Item_id DESC limit 1");
+        char tableCharactor ='I';
+        if(rs.next()){
+            String lastId =rs.getString(1);
+            String lastIdNumberString = lastId.substring(1);
+            int lastIdNumber = Integer.parseInt(lastIdNumberString);
+            int nextIdNumber = lastIdNumber + 1;
+            String nextIdString =String.format("I%03d", nextIdNumber);
+            return nextIdString;
         }
-        return prefix + "001";
+        return tableCharactor+"001";
+
+        }catch (Exception e){
+            return "I001";
+        }
     }
+
+    @Override
+    public ItemEntity search(String id) throws SQLException, ClassNotFoundException {
+        return null;
     }
+}
 

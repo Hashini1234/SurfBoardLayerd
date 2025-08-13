@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BeachLocationBOImpl implements BeachLocationBO {
-private final BeachLocationDao beachLocationDao = DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.BEACHLOCATION);
+private final BeachLocationDao beachLocationDao = (BeachLocationDao) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.BEACHLOCATION);
 
 
     @Override
@@ -44,6 +44,7 @@ private final BeachLocationDao beachLocationDao = DAOFactory.getInstance().getDA
 
     @Override
     public String getNextId() throws SQLException, ClassNotFoundException {
-        return beachLocationDao.getNextId();
+       // return beachLocationDao.getNextId();
+        return null;
     }
 }

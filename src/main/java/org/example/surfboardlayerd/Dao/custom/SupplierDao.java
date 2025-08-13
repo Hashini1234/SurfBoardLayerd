@@ -2,9 +2,7 @@ package org.example.surfboardlayerd.Dao.custom;
 
 import org.example.surfboardlayerd.Dao.CrudDao;
 import org.example.surfboardlayerd.entity.ItemEntity;
+import org.example.surfboardlayerd.entity.SupplierEntity;
 
-import java.sql.SQLException;
-import java.util.List;
-
-public interface ItemDao extends CrudDao<ItemEntity> {
+public interface SupplierDao extends CrudDao <SupplierEntity> {
 }

@@ -11,35 +11,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemBOImpl implements ItemBO {
-    private final ItemDao itemDao= DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.ITEM);
+    private final ItemDao itemDao= (ItemDao)DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.ITEM);
 
     @Override
-    public List<ItemDto> getAll() throws SQLException, ClassNotFoundException {
-        List<ItemEntity> entities = ItemDao.getAll();
-        List<ItemDto> dtos = new ArrayList<>();
+    public ArrayList<ItemDto> getAll() throws SQLException, ClassNotFoundException {
+        ArrayList<ItemEntity> entities = itemDao.getAll();
+        ArrayList<ItemDto> dtos = new ArrayList<>();
         for (ItemEntity e : entities) {
-            dtos.add(new ItemDto(e.getItemId(), e.getName(), e.getQtyOnHand(), e.getUnitPrice()));
+            dtos.add(new ItemDto(e.getItemId(), e.getName(), e.getType(), e.getConditions(),e.getAvailabilityStatus()));
         }
         return dtos;
     }
 
     @Override
     public boolean save(ItemDto dto) throws SQLException, ClassNotFoundException {
-        return ItemDao.save(new ItemEntity(dto.getItemId(), dto.getName(), dto.getQtyOnHand(), dto.getUnitPrice()));
+        return itemDao.save(new ItemEntity(dto.getItemId(), dto.getName(), dto.getType(), dto.getConditions(), dto.getAvailabilityStatus()));
     }
 
     @Override
     public boolean update(ItemDto dto) throws SQLException, ClassNotFoundException {
-        return ItemDao.update(new ItemEntity(dto.getItemId(), dto.getName(), dto.getQtyOnHand(), dto.getUnitPrice()));
+        return itemDao.update(new ItemEntity(dto.getItemId(), dto.getName(), dto.getType(), dto.getConditions(), dto.getAvailabilityStatus()));
     }
 
     @Override
     public boolean delete(String id) throws SQLException, ClassNotFoundException {
-        return ItemDao.delete(id);
+        return itemDao.delete(id);
     }
 
     @Override
     public String getNextId() throws SQLException, ClassNotFoundException {
-        return ItemDao.getNextId();
+        return itemDao.generateNewId();
     }
 }

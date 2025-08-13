@@ -29,7 +29,7 @@ public  class DashBoardController implements Initializable {
     }
 
     public void btnGuideOnAction(ActionEvent actionEvent) {
-        nevigateTo("View/DashBoard.fxml");
+        nevigateTo("/View/Guide.fxml");
     }
 
     public void btnPaymentOnAction(ActionEvent actionEvent) {

@@ -9,4 +9,6 @@ module org.example.surfboardlayerd {
 
     exports org.example.surfboardlayerd;
     exports org.example.surfboardlayerd.controller;
+
+    opens org.example.surfboardlayerd.view.tdm to javafx.base;
 }
