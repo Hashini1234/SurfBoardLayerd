@@ -2,12 +2,13 @@ package org.example.surfboardlayerd.Dao.custom.Impl;
 
 import org.example.surfboardlayerd.Dao.SQLUtil;
 import org.example.surfboardlayerd.Dao.custom.UserDAO;
-import org.example.surfboardlayerd.entity.ItemEntity;
+import org.example.surfboardlayerd.entity.GuideEntity;
 import org.example.surfboardlayerd.entity.UserEntity;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class UserDAOImpl implements UserDAO {
     @Override

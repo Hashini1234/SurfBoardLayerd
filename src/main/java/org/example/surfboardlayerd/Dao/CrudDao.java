@@ -1,9 +1,10 @@
 package org.example.surfboardlayerd.Dao;
 
-import org.example.surfboardlayerd.entity.ItemEntity;
+import org.example.surfboardlayerd.entity.GuideEntity;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public interface CrudDao<T> extends SuperDAO {
     public ArrayList<T> getAll() throws SQLException, ClassNotFoundException;

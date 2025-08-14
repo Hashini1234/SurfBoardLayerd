@@ -3,11 +3,12 @@ package org.example.surfboardlayerd.Dao.custom.Impl;
 import org.example.surfboardlayerd.Dao.SQLUtil;
 import org.example.surfboardlayerd.Dao.custom.BeachLocationDao;
 import org.example.surfboardlayerd.entity.BeachLocationEntity;
-import org.example.surfboardlayerd.entity.ItemEntity;
+import org.example.surfboardlayerd.entity.GuideEntity;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class BeachLocationDaoImpl implements BeachLocationDao {
     @Override

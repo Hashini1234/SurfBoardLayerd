@@ -9,11 +9,10 @@ import lombok.*;
 @Setter
 
 public class GuideDto {
-    private String guideId;
+    private String guide_id;
     private String name;
-    private String contactDetails;
-    private String experienceLevel;
-    private Double payFor;
-    private String status;
+    private String contact_Details;
+    private String experience_Level;
+    private Double pay_for;
 
 }

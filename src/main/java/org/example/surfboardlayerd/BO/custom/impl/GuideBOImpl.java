@@ -4,6 +4,7 @@ import org.example.surfboardlayerd.BO.custom.GuideBO;
 import org.example.surfboardlayerd.Dao.DAOFactory;
 import org.example.surfboardlayerd.Dao.custom.GuideDao;
 import org.example.surfboardlayerd.entity.GuideEntity;
+import org.example.surfboardlayerd.view.tdm.GuideTM;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -16,24 +17,22 @@ private final GuideDao guideDao = ( GuideDao)DAOFactory.getInstance().getDAO(DAO
     @Override
     public boolean saveGuide(GuideEntity guide) throws SQLException, ClassNotFoundException {
         return guideDao.save(new GuideEntity(
-                guide.getGuideId(),
+                guide.getGuide_id(),
                 guide.getName(),
-                guide.getContactDetails(),
-                guide.getExperienceLevel(),
-                guide.getPayFor(),
-                guide.getStatus()
+                guide.getContact_Details(),
+                guide.getExperience_Level(),
+                guide.getPay_for()
         ));
     }
 
     @Override
     public boolean updateGuide(GuideEntity guide) throws SQLException, ClassNotFoundException {
         return guideDao.update(new GuideEntity(
-                guide.getGuideId(),
+                guide.getGuide_id(),
                 guide.getName(),
-                guide.getContactDetails(),
-                guide.getExperienceLevel(),
-                guide.getPayFor(),
-                guide.getStatus()
+                guide.getContact_Details(),
+                guide.getExperience_Level(),
+                guide.getPay_for()
         ));
     }
 
@@ -46,17 +45,17 @@ private final GuideDao guideDao = ( GuideDao)DAOFactory.getInstance().getDAO(DAO
     public GuideEntity getGuideById(String id) throws SQLException, ClassNotFoundException {
         GuideEntity e = guideDao.getById(id);
         if (e != null) {
-            return new GuideEntity(e.getGuideId(), e.getName(), e.getContactDetails(), e.getExperienceLevel(), e.getPayFor(), e.getStatus());
+            return new GuideEntity(e.getGuide_id(), e.getName(), e.getContact_Details(), e.getExperience_Level(), e.getPay_for());
         }
         return null;
     }
 
     @Override
-    public List<GuideEntity> getAllGuides() throws SQLException, ClassNotFoundException {
+    public List<GuideTM> getAllGuides() throws SQLException, ClassNotFoundException {
         List<GuideEntity> entities = guideDao.getAll();
-        List<GuideEntity> list = new ArrayList<>();
+        List<GuideTM> list = new ArrayList<>();
         for (GuideEntity e : entities) {
-            list.add(new GuideEntity(e.getGuideId(), e.getName(), e.getContactDetails(), e.getExperienceLevel(), e.getPayFor(), e.getStatus()));
+            list.add(new GuideTM(e.getGuide_id(), e.getName(), e.getContact_Details(), e.getExperience_Level(), e.getPay_for()));
         }
         return list;
     }

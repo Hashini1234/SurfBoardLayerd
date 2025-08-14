@@ -3,31 +3,42 @@ package org.example.surfboardlayerd.Dao.custom.Impl;
 import org.example.surfboardlayerd.Dao.SQLUtil;
 import org.example.surfboardlayerd.Dao.custom.GuideDao;
 import org.example.surfboardlayerd.entity.GuideEntity;
-import org.example.surfboardlayerd.entity.ItemEntity;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class GuideDaoImpl implements GuideDao {
     @Override
     public ArrayList<GuideEntity> getAll() throws SQLException, ClassNotFoundException {
-        return null;
+        ResultSet rs = SQLUtil.execute("SELECT * FROM guide");
+        ArrayList<GuideEntity> list = new ArrayList<>();
+        while (rs.next()) {
+            list.add(new GuideEntity(
+                    rs.getString("guide_id"),
+                    rs.getString("name"),
+                    rs.getString("contact_details"),
+                    rs.getString("experience_level"),
+                    rs.getDouble("pay_for")
+            ));
+        }
+        return list;
     }
 
     @Override
     public boolean save(GuideEntity guide) throws SQLException, ClassNotFoundException {
         return SQLUtil.execute(
-                "INSERT INTO Guide (guide_id, name, contact_details, experience_level, pay_for, status) VALUES (?,?,?,?,?,?)",
-                guide.getGuideId(), guide.getName(), guide.getContactDetails(), guide.getExperienceLevel(), guide.getPayFor(), guide.getStatus()
+                "INSERT INTO Guide (guide_id, name, contact_details, experience_level, pay_for) VALUES (?,?,?,?,?)",
+                guide.getGuide_id(), guide.getName(), guide.getContact_Details(), guide.getExperience_Level(), guide.getPay_for()
         );
     }
 
     @Override
     public boolean update(GuideEntity guide) throws SQLException, ClassNotFoundException {
         return SQLUtil.execute(
-                "UPDATE Guide SET name=?, contact_details=?, experience_level=?, pay_for=?, status=? WHERE guide_id=?",
-                guide.getName(), guide.getContactDetails(), guide.getExperienceLevel(), guide.getPayFor(), guide.getStatus(), guide.getGuideId()
+                "UPDATE Guide SET name=?, contact_details=?, experience_level=?, pay_for=? WHERE guide_id=?",
+                guide.getName(), guide.getContact_Details(), guide.getExperience_Level(), guide.getPay_for(), guide.getGuide_id()
         );
     }
 
@@ -45,8 +56,7 @@ public class GuideDaoImpl implements GuideDao {
                     rs.getString("name"),
                     rs.getString("contact_details"),
                     rs.getString("experience_level"),
-                    rs.getDouble("pay_for"),
-                    rs.getString("status")
+                    rs.getDouble("pay_for")
             );
         }
         return null;

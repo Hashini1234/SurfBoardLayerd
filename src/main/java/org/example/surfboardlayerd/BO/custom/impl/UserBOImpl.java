@@ -13,7 +13,7 @@ public class UserBOImpl implements UserBO {
     private final UserDAO userDAO = (UserDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.USER);
 
     @Override
-    public ArrayList<String> getAll() throws Exception {
+    public ArrayList<UserEntity> getAll() throws Exception {
         ArrayList<UserEntity> users = userDAO.getAll();
         ArrayList<UserDto> dtos = new ArrayList<>();
         for (UserEntity e : users) {
