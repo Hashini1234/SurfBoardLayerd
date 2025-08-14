@@ -11,7 +11,7 @@ public class DAOFactory {
     }
 
     public enum DAOTypes {
-       GUIDE,BEACHLOCATION,ITEM,USER,SUPPLIER,SURFBOARD
+       GUIDE,BEACHLOCATION,ITEM,USER,SUPPLIER,
 
     }
     public static CrudDao getDAO(DAOTypes daoType) {
@@ -26,8 +26,7 @@ public class DAOFactory {
                     return new UserDAOImpl();
             case SUPPLIER:
                 return new SupplierDaoImpl();
-                           case SURFBOARD:
-                               return new SurfBoardDaoImpl();
+
             default:
                 return null;
         }

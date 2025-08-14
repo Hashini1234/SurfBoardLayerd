@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class UserDAOImpl implements UserDAO {
     @Override
-    public ArrayList<ItemEntity> getAll() throws SQLException, ClassNotFoundException {
+    public ArrayList<UserEntity> getAll() throws SQLException, ClassNotFoundException {
         ResultSet resultSet = SQLUtil.execute("SELECT * FROM users");
         ArrayList<UserEntity> list = new ArrayList<>();
         while (resultSet.next()) {

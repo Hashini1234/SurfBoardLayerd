@@ -11,7 +11,7 @@ public class BOFactory {
         return ((boFactory) == null) ?new BOFactory():boFactory;
     }
     public enum BOTypes {
-        GUIDE,BeachLocation,Item,USER,SUPPLIER,SURFBOARD
+        GUIDE,BeachLocation,Item,USER,SUPPLIER,
 
 
 
@@ -29,8 +29,7 @@ public class BOFactory {
                     return new UserBOImpl();
                     case SUPPLIER:
                         return new SupplierBoImpl();
-                        case SURFBOARD:
-                            return new SurfBoardBoImpl();
+
             default:
                 return null;
         }

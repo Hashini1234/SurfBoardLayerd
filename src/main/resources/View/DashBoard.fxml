@@ -5,30 +5,30 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="806.0" prefWidth="942.0"  xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.surfboardlayerd.controller.DashBoardController">
+<AnchorPane prefHeight="806.0" prefWidth="942.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.surfboardlayerd.controller.DashBoardController">
 
     <children>
 
-        <AnchorPane fx:id="ancDash" prefHeight="806.0" prefWidth="285.0" styleClass="sidebar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <AnchorPane fx:id="ancDash" prefHeight="806.0" prefWidth="285.0" style="-fx-background-color: #535c68;" styleClass="sidebar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Label fx:id="lblDash" layoutX="50.0" layoutY="30.0" prefHeight="50.0" prefWidth="180.0" styleClass="dashboard-label" text="Dashboard">
+                <Label fx:id="lblDash" layoutX="64.0" layoutY="30.0" prefHeight="70.0" prefWidth="170.0" styleClass="dashboard-label" text="Dashboard" textFill="#eaeaea">
                     <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="24.0" />
                     </font>
                 </Label>
 
 
-                <Button layoutX="60.0" layoutY="110.0" onAction="#btnBeach_LocationOnAction" styleClass="nav-button" text="Beach Location" />
-                <Button layoutX="60.0" layoutY="160.0" onAction="#btnBillOnAction" styleClass="nav-button" text="Bill" />
-                <Button layoutX="60.0" layoutY="210.0" onAction="#btnGuideOnAction" styleClass="nav-button" text="Guide" />
-                <Button layoutX="60.0" layoutY="260.0" onAction="#btnItemOnAction" styleClass="nav-button" text="Item" />
-                <Button layoutX="60.0" layoutY="310.0" onAction="#btnPaymentOnAction" styleClass="nav-button" text="Payment" />
-                <Button layoutX="60.0" layoutY="360.0" onAction="#btnSessionOnAction" styleClass="nav-button" text="Session" />
-                <Button layoutX="60.0" layoutY="410.0" onAction="#btnSupplierOnAction" styleClass="nav-button" text="Supplier" />
-                <Button layoutX="60.0" layoutY="460.0" onAction="#btnSurf_BoardOnAction" styleClass="nav-button" text="Surf Board" />
-                <Button layoutX="60.0" layoutY="510.0" onAction="#btnTouristOnAction" styleClass="nav-button" text="Tourist" />
-                <Button layoutX="60.0" layoutY="560.0" onAction="#btnTransportOnAction" styleClass="nav-button" text="Transport" />
-                <Button layoutX="104.0" layoutY="665.0" onAction="#btnLogOutOnAction" styleClass="logout-button" text="LOG OUT" />
+                <Button layoutX="77.0" layoutY="111.0" onAction="#btnBeach_LocationOnAction" styleClass="nav-button" text="Beach Location" />
+                <Button layoutX="76.0" layoutY="161.0" onAction="#btnBillOnAction" prefHeight="26.0" prefWidth="97.0" styleClass="nav-button" text="Bill" />
+                <Button layoutX="75.0" layoutY="211.0" onAction="#btnGuideOnAction" prefHeight="26.0" prefWidth="98.0" styleClass="nav-button" text="Guide" />
+                <Button layoutX="75.0" layoutY="259.0" onAction="#btnItemOnAction" prefHeight="26.0" prefWidth="97.0" styleClass="nav-button" text="Item" />
+                <Button layoutX="74.0" layoutY="312.0" onAction="#btnPaymentOnAction" prefHeight="26.0" prefWidth="98.0" styleClass="nav-button" text="Payment" />
+                <Button layoutX="74.0" layoutY="360.0" onAction="#btnSessionOnAction" prefHeight="26.0" prefWidth="98.0" styleClass="nav-button" text="Session" />
+                <Button layoutX="74.0" layoutY="412.0" onAction="#btnSupplierOnAction" prefHeight="26.0" prefWidth="98.0" styleClass="nav-button" text="Supplier" />
+                <Button layoutX="76.0" layoutY="458.0" onAction="#btnSurf_BoardOnAction" prefHeight="26.0" prefWidth="98.0" styleClass="nav-button" text="Surf Board" />
+                <Button layoutX="74.0" layoutY="511.0" onAction="#btnTouristOnAction" prefHeight="26.0" prefWidth="98.0" styleClass="nav-button" text="Tourist" />
+                <Button layoutX="74.0" layoutY="560.0" onAction="#btnTransportOnAction" prefHeight="26.0" prefWidth="98.0" styleClass="nav-button" text="Transport" />
+                <Button layoutX="60.0" layoutY="666.0" onAction="#btnLogOutOnAction" prefHeight="38.0" prefWidth="130.0" styleClass="logout-button" text="LOG OUT" />
             </children>
         </AnchorPane>
 
