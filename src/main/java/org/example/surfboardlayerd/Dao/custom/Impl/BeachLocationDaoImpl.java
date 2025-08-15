@@ -60,8 +60,15 @@ public class BeachLocationDaoImpl implements BeachLocationDao {
 
     @Override
     public String generateNewId() throws SQLException, ClassNotFoundException {
-        return null;
+        ResultSet rs = SQLUtil.execute("SELECT beach_id FROM Beach_Location ORDER BY beach_id DESC LIMIT 1");
+        if (rs.next()) {
+            String lastId = rs.getString(1);
+            int num = Integer.parseInt(lastId.substring(1)) + 1;
+            return String.format("B%03d", num);
+        }
+        return "B001";
     }
+    
 
     @Override
     public BeachLocationEntity search(String id) throws SQLException, ClassNotFoundException {
